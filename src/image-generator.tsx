@@ -5,10 +5,11 @@ export default function ImageGenerator() {
   const [imageUrl, setImageUrl] = useState('');
 
   const generateImage = async () => {
-    // 此处调用后端接口，后续再接 Moonshot / SD 等 API
-    const fakeImage = 'https://via.placeholder.com/512x512.png?text=Ftage+AI';
-    setImageUrl(fakeImage);
-  };
+  const encodedPrompt = encodeURIComponent(prompt);
+  const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}`;
+  setImageUrl(imageUrl);
+};
+
 
   return (
     <div className="p-6 max-w-xl mx-auto">
